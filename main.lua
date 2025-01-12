@@ -13,6 +13,12 @@ while i <= #arg do
 	i = i + 1
 end
 
+if not table.pack then
+    function table.pack(...)
+        return {n=select('#', ...), ...}
+    end
+end
+
 math.randomseed(os.time())
 
 require("src.keyconvert")
