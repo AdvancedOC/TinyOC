@@ -116,6 +116,7 @@ Virtual_G = {
 		end,
 		char = utf8.char,
 		wtrunc = function (str,space)
+			space = space - 1
 			return str:sub(1,(space >= utf8.len(str)) and (#str) or (utf8.offset(str,space+1)-1))
 		end,
 		upper = string.upper, -- these are accurate... sometimes
