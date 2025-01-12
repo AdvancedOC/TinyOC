@@ -30,8 +30,8 @@ function computer.uptime()
 	return os.clock()
 end
 
-function computer.shutdown()
-	return -- fuck you actually
+function computer.shutdown(restart)
+    love.event.quit(restart and "restart")
 end
 
 function computer.addUser()
