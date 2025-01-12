@@ -80,6 +80,9 @@ function gpuFuncs.setResolution(w, h)
 	if boundscreen ~= screenUUID then return end
 	local data = {}
 
+    w = math.max(1, math.min(w, normalW))
+    h = math.max(1, math.min(h, normalH))
+
     for i=1,w do
         data[i] = {}
         for j=1,h do
