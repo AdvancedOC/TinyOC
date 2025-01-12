@@ -65,7 +65,7 @@ end
 
 function gpuFuncs.maxResolution()
 	if boundscreen ~= screenUUID then return end
-	return Screen.w, Screen.h
+	return 80, 16 -- Not a valid resolution in OpenComputers btw
 end
 
 function gpuFuncs.getResolution()
@@ -73,9 +73,21 @@ function gpuFuncs.getResolution()
 	return Screen.w, Screen.h
 end
 
-function gpuFuncs.setResolution()
+function gpuFuncs.setResolution(w, h)
 	if boundscreen ~= screenUUID then return end
-	-- no.
+	local data = {}
+
+    for i=1,w do
+        data[i] = {}
+        for j=1,h do
+            local c, f, b = gpuFuncs.get(i, j)
+            data[i][j] = {c, f, b}
+        end
+    end
+
+    Screen.data = data
+    Screen.w = w
+    Screen.h = h
 end
 
 function gpuFuncs.getViewport()
