@@ -67,3 +67,9 @@ function love.update(dt)
 
 	RunVM()
 end
+
+function love.mousepressed(x,y,b)
+	if b == 3 then
+		QueueSignal("clipboard", KeyboardAddress, love.system.getClipboardText(), "USER")
+	end
+end
