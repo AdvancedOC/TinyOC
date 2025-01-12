@@ -63,9 +63,12 @@ function gpuFuncs.setDepth()
 	-- no.
 end
 
+local normalW = Screen.w
+local normalH = Screen.h
+
 function gpuFuncs.maxResolution()
 	if boundscreen ~= screenUUID then return end
-	return 80, 16 -- Not a valid resolution in OpenComputers btw
+	return normalW, normalH -- Not a valid resolution in OpenComputers btw
 end
 
 function gpuFuncs.getResolution()
